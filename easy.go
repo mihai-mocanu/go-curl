@@ -83,7 +83,6 @@ func (e CurlError) Code() int {
 	return int(e)
 }
 
-
 func newCurlError(errno C.CURLcode) error {
 	if errno == C.CURLE_OK { // if nothing wrong
 		return nil
