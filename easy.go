@@ -79,6 +79,11 @@ func (e CurlError) Error() string {
 	return fmt.Sprintf("curl: %s", C.GoString(ret))
 }
 
+func (e CurlError) Code() string {
+	return int(e)
+}
+
+
 func newCurlError(errno C.CURLcode) error {
 	if errno == C.CURLE_OK { // if nothing wrong
 		return nil
